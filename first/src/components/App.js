@@ -4,6 +4,7 @@ import Form from "./Form/Form";
 import Name from "./Name/Name";
 import Email from "./Email/Email";
 import Phone from "./Phone/Phone";
+import Button from "./Button/Button";
 
 class App extends Component {
    state = {
@@ -37,6 +38,7 @@ class App extends Component {
             <Name nameValue={inputName} changeValue={this.onChangeName} />
             <Email emailValue={inputEmail} changeValue={this.onChangeEmail} />
             <Phone phoneValue={inputPhone} changeValue={this.onChangePhone} />
+            <Button />
          </Form>
       );
    }
