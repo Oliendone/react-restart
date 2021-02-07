@@ -5,31 +5,39 @@ import Button from "./Button/Button";
 import Form from "./Form/Form";
 
 export default function FApp(params) {
-   const [name, setNameValue] = useState("");
-   const [email, setEmailValue] = useState("");
-   const [phone, setPhoneValue] = useState("");
+   const [name, setInputValue] = useState("");
+   console.log(name);
+   // const [email, setEmailValue] = useState("");
+   // const [phone, setPhoneValue] = useState("");
 
-   const onChangeNameInput = ({ target }) => {
-      const { value } = target;
+   // const onChangeNameInput = ({ target }) => {
+   //    const { value } = target;
 
-      setNameValue(value);
-   };
+   //    setNameValue(value);
+   // };
 
-   const onChangeEmailInput = ({ target }) => {
-      const { value } = target;
+   // const onChangeEmailInput = ({ target }) => {
+   //    const { value } = target;
 
-      setEmailValue(value);
-   };
+   //    setEmailValue(value);
+   // };
 
-   const onChangePhoneInput = ({ target }) => {
-      const { value } = target;
+   // const onChangePhoneInput = ({ target }) => {
+   //    const { value } = target;
 
-      setPhoneValue(value);
+   //    setPhoneValue(value);
+   // };
+
+   const onChangeInput = ({ target }) => {
+      const { name, value } = target;
+
+      setInputValue({ [name]: value });
+      console.log(name, value);
    };
 
    const onSubmitForm = (e) => {
       e.preventDefault();
-      alert([name, email, phone]);
+      alert(name);
    };
    return (
       <Form onSubmitClick={onSubmitForm}>
@@ -38,21 +46,21 @@ export default function FApp(params) {
             placeholder="Your name"
             name="name"
             nameValue={name}
-            changeValue={onChangeNameInput}
+            changeValue={onChangeInput}
          />
          <Input
             type="email"
             placeholder="Your email"
             name="email"
-            emailValue={email}
-            changeValue={onChangeEmailInput}
+            emailValue={name}
+            changeValue={onChangeInput}
          />
          <Input
             type="phone"
             placeholder="Your phone"
             name="phone"
-            phoneValue={phone}
-            changeValue={onChangePhoneInput}
+            phoneValue={name}
+            changeValue={onChangeInput}
          />
          <Button />
       </Form>
