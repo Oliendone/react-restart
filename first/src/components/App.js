@@ -8,21 +8,15 @@ import Button from "./Button/Button";
 
 class App extends Component {
    state = {
-      inputName: "",
-      inputEmail: "",
-      inputPhone: "",
+      name: "",
+      email: "",
+      phone: "",
    };
 
-   onChangeName = (e) => {
-      this.setState({ inputName: e.target.value });
-   };
+   onChangeInput = (e) => {
+      const { name, value } = e.target;
 
-   onChangeEmail = (e) => {
-      this.setState({ inputEmail: e.target.value });
-   };
-
-   onChangePhone = (e) => {
-      this.setState({ inputPhone: e.target.value });
+      this.setState({ [name]: value });
    };
 
    onSubmitForm = (e) => {
@@ -31,13 +25,13 @@ class App extends Component {
    };
 
    render() {
-      const { inputName, inputEmail, inputPhone } = this.state;
+      const { name, email, phone } = this.state;
 
       return (
          <Form onSubmitClick={this.onSubmitForm}>
-            <Name nameValue={inputName} changeValue={this.onChangeName} />
-            <Email emailValue={inputEmail} changeValue={this.onChangeEmail} />
-            <Phone phoneValue={inputPhone} changeValue={this.onChangePhone} />
+            <Name nameValue={name} changeValue={this.onChangeInput} />
+            <Email emailValue={email} changeValue={this.onChangeInput} />
+            <Phone phoneValue={phone} changeValue={this.onChangeInput} />
             <Button />
          </Form>
       );

@@ -1,15 +1,16 @@
 import React from "react";
 
-const Phone = ({ emailValue, changeValue }) => {
-  return (
-    <>
-      <input
-        type="phone"
-        placeholder="Your phone"
-        value={emailValue}
-        onChange={changeValue}></input>
-    </>
-  );
+const Phone = ({ phoneValue, changeValue }) => {
+   return (
+      <>
+         <input
+            type="phone"
+            placeholder="Your phone"
+            value={phoneValue}
+            onChange={changeValue}
+            name="phone"></input>
+      </>
+   );
 };
 
 export default Phone;
