@@ -1,27 +1,28 @@
 import React, { Component } from "react";
 
 import Form from "./Form/Form";
-import Name from "./Name/Name";
-import Email from "./Email/Email";
-import Phone from "./Phone/Phone";
+import Input from "./Input";
 import Button from "./Button/Button";
 
 class App extends Component {
-   state = {
-      name: "",
-      email: "",
-      phone: "",
-   };
+   constructor(props) {
+      super(props);
+      this.state = {
+         name: "",
+         email: "",
+         phone: "",
+      };
+   }
 
-   onChangeInput = (e) => {
-      const { name, value } = e.target;
+   onChangeInput = ({ target }) => {
+      const { name, value } = target;
 
       this.setState({ [name]: value });
    };
 
    onSubmitForm = (e) => {
       e.preventDefault();
-      alert(`Hello, ${this.state.inputName}`);
+      alert(`Hello, ${JSON.stringify(this.state)}`);
    };
 
    render() {
@@ -29,9 +30,27 @@ class App extends Component {
 
       return (
          <Form onSubmitClick={this.onSubmitForm}>
-            <Name nameValue={name} changeValue={this.onChangeInput} />
-            <Email emailValue={email} changeValue={this.onChangeInput} />
-            <Phone phoneValue={phone} changeValue={this.onChangeInput} />
+            <Input
+               type="text"
+               placeholder="Your name"
+               name="name"
+               nameValue={name}
+               changeValue={this.onChangeInput}
+            />
+            <Input
+               type="email"
+               placeholder="Your email"
+               name="email"
+               emailValue={email}
+               changeValue={this.onChangeInput}
+            />
+            <Input
+               type="phone"
+               placeholder="Your phone"
+               name="phone"
+               phoneValue={phone}
+               changeValue={this.onChangeInput}
+            />
             <Button />
          </Form>
       );
