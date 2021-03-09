@@ -1,6 +1,6 @@
 import React from "react";
 
-function Button({ value, changeInputState, isDisabled }) {
+function Button({ value, changeInputState }) {
   return (
     <>
       <button onClick={changeInputState}>{value}</button>

@@ -11,6 +11,7 @@ class CoreComponent extends Component {
     address: "Greenland",
     bio: "Drunk sailor",
     inputsDisabled: true,
+    buttonText: "Change",
   };
 
   onChangeInput = ({ target }) => {
@@ -21,6 +22,12 @@ class CoreComponent extends Component {
 
   onButtonClick = () => {
     this.setState({ inputsDisabled: !this.state.inputsDisabled });
+
+    if (!this.state.inputsDisabled) {
+      this.setState({ buttonText: "Change" });
+    } else {
+      this.setState({ buttonText: "Save" });
+    }
   };
 
   render() {
@@ -32,8 +39,9 @@ class CoreComponent extends Component {
       address,
       bio,
       inputsDisabled,
+      buttonText,
     } = this.state;
-    console.log(this.state.inputsDisabled);
+
     return (
       <>
         <ChildrenComponent
@@ -79,7 +87,7 @@ class CoreComponent extends Component {
         </ChildrenComponent>
         <Button
           changeInputState={this.onButtonClick}
-          value="Change"
+          value={buttonText}
           isDisabled={inputsDisabled}
         />
       </>

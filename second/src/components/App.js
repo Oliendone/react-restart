@@ -1,9 +1,9 @@
 import React from "react";
 
-import CoreComponent from "./CoreComponent";
+import CoreComponentHooks from "./CoreComponent/CoreComponentHooks";
 
 function App() {
-  return <CoreComponent />;
+  return <CoreComponentHooks />;
 }
 
 export default App;
